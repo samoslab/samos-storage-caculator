@@ -1,1 +1,73 @@
-<h1>hi, world</h1>
+<html>
+<head>
+    <title>Samos</title>
+    <style>
+        table th {
+            text-align: right;
+        }
+
+        table td {
+            padding-left: 15px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th colspan="2">SAMO Calculator</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th colspan="2">&nbsp;</th>
+    </tr>
+    <tr>
+        <th>Your Earnings</th>
+        <td><input type="text" readonly="readonly" value="100" style="color: #FF0000;font-weight: bold"> SAMO</td>
+    </tr>
+    </tfoot>
+    <tbody>
+    <tr>
+        <th>Storage</th>
+        <td><input type="text" name="s1" value="1"/> 36 SAMO per month, for storing 1T Byte file.</td>
+    </tr>
+    <tr>
+        <th>Downstream Traffic</th>
+        <td><input type="text" name="s2" value="1"/> 12 SAMO, for generating 1T Byte of downstream traffic.</td>
+    </tr>
+    <tr>
+        <th>Upstream Traffic</th>
+        <td><input type="text" name="s3" value="1"/> 48 SAMO, for generating 1T Byte of upstream traffic.</td>
+    </tr>
+    <tr>
+        <th>Availability</th>
+        <td><select name="s4">
+            <option value="1.2">higher than 99.9%, 120% of the total reward</option>
+            <option value="0.8">between 98％~99%, 80% of the total reward</option>
+            <option value="0.6">between 97％~98%, 60% of the total reward</option>
+            <option value="0">lower than 97%, no reward!</option>
+        </select></td>
+    </tr>
+    <tr>
+        <th>Testnet</th>
+        <td><input type="radio" name="s5" value="3"> Yes <input type="radio" checked name="s5" value="1"/> No Testnet
+            participants will be rewarded with a
+            300% bonus based on the reward scheme above.
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
+<footer>
+</footer>
+</body>
+</html>
