@@ -6,5 +6,5 @@ import (
 )
 
 func CalAction(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("cal")
+	fmt.Fprintf(w, "%s", `{"key":"value"}`)
 }

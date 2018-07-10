@@ -11,9 +11,7 @@ type Router struct {
 }
 
 func (router *Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path == "/" {
-		action.IndexAction(w, r)
-	} else if r.URL.Path == "/cal" {
+	if r.URL.Path == "/cal" {
 		action.CalAction(w, r)
 	} else {
 		dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
