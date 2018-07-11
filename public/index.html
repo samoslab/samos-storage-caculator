@@ -5,7 +5,6 @@
         table th {
             text-align: right;
         }
-
         table td {
             padding-left: 15px;
         }
@@ -25,23 +24,30 @@
     </tr>
     <tr>
         <th>Your Earnings</th>
-        <td><input type="text" readonly="readonly" value="100" style="color: #FF0000;font-weight: bold"> SAMO</td>
+        <td>
+            <input type="text" id="result" readonly="readonly" value="100" style="color: #FF0000;font-weight: bold">
+            SAMO
+        </td>
     </tr>
     </tfoot>
     <tbody>
     <tr>
         <th>Storage</th>
-        <td><input class="target" type="text" name="s1" value="1"/> 36 SAMO per month, for storing 1T Byte file.</td>
+        <td>
+            <label><input class="target" type="text" name="s1" value="1"/> 36 SAMO per month, for storing 1T Byte file.</label>
+        </td>
     </tr>
     <tr>
         <th>Downstream Traffic</th>
-        <td><input class="target" type="text" name="s2" value="1"/> 12 SAMO, for generating 1T Byte of downstream
-            traffic.
+        <td>
+            <label><input class="target" type="text" name="s2" value="1"/> 12 SAMO, for generating 1T Byte of downstream
+                traffic.</label>
         </td>
     </tr>
     <tr>
         <th>Upstream Traffic</th>
-        <td><input class="target" type="text" name="s3" value="1"/> 48 SAMO, for generating 1T Byte of upstream traffic.
+        <td><label><input class="target" type="text" name="s3" value="1"/> 48 SAMO, for generating 1T Byte of upstream
+            traffic.</label>
         </td>
     </tr>
     <tr>
@@ -55,8 +61,12 @@
     </tr>
     <tr>
         <th>Testnet</th>
-        <td><input class="target" type="radio" name="s5" value="3"> Yes <input type="radio" checked name="s5"
-                                                                               value="1"/> No Testnet
+        <td><label><input type="radio" class="target" name="s5" value="3"> Yes</label> <label><input type="radio"
+                                                                                                     class="target"
+                                                                                                     checked
+                                                                                                     name="s5"
+                                                                                                     value="1"/>
+            No</label> Testnet
             participants will be rewarded with a
             300% bonus based on the reward scheme above.
         </td>
@@ -65,11 +75,22 @@
 </table>
 <script>
     $(document).ready(function () {
+        cal()
         $(".target").change(function () {
-            alert($("form[name=s1]").val())
+            cal()
         });
     });
 
+    function cal() {
+        var v1 = $("input[name='s1']").val();
+        var v2 = $("input[name='s2']").val();
+        var v3 = $("input[name='s3']").val();
+        var v4 = $("select[name='s4']").val();
+        var v5 = $("input[name='s5']:checked").val();
+        var total = (v1 * 36 + v2 * 12 + v3 * 48) * v4 * v5;
+        total = Math.floor(total)
+        $("#result").val(total);
+    }
 </script>
 <footer>
 </footer>
