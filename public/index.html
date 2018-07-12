@@ -1,83 +1,104 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <title>Samos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
     <style>
-        table th {
-            vertical-align: top;
-            text-align: right;
-        }
-        table td {
-            padding-left: 15px;
-        }
-        label{
-
-        }
     </style>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <th colspan="2">SAMO Calculator</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-        <th colspan="2">&nbsp;</th>
-    </tr>
-    <tr>
-        <th>Your Earnings</th>
-        <td>
-            <input type="text" id="result" readonly="readonly" value="100" style="color: #FF0000;font-weight: bold">
-            SAMO
-        </td>
-    </tr>
-    </tfoot>
-    <tbody>
-    <tr>
-        <th>Storage</th>
-        <td>
-            <label><input class="target" type="text" name="s1" value="1"/> 36 SAMO per month, for storing 1T Byte file.</label>
-        </td>
-    </tr>
-    <tr>
-        <th>Downstream Traffic</th>
-        <td>
-            <label><input class="target" type="text" name="s2" value="1"/> 12 SAMO, for generating 1T Byte of downstream
-                traffic.</label>
-        </td>
-    </tr>
-    <tr>
-        <th>Upstream Traffic</th>
-        <td><label><input class="target" type="text" name="s3" value="1"/> 48 SAMO, for generating 1T Byte of upstream
-            traffic.</label>
-        </td>
-    </tr>
-    <tr>
-        <th>Availability</th>
-        <td><select class="target" name="s4">
-            <option value="1.2">higher than 99.9%, 120% of the total reward</option>
-            <option value="0.8">between 98％~99%, 80% of the total reward</option>
-            <option value="0.6">between 97％~98%, 60% of the total reward</option>
-            <option value="0">lower than 97%, no reward!</option>
-        </select></td>
-    </tr>
-    <tr>
-        <th>Testnet</th>
-        <td><label><input type="radio" class="target" name="s5" value="3"> Yes</label> <label><input type="radio"
-                                                                                                     class="target"
-                                                                                                     checked
-                                                                                                     name="s5"
-                                                                                                     value="1"/>
-            No</label> <br />
-            Testnet
-            participants will be rewarded with a
-            300% bonus based on the reward scheme above.
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 style="text-align: center">SAMO Calculator</h2>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="s1" class="col-md-2 control-label">Storage:</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control target" style="width: 100px;" id="s1" value="1">
+                        36 SAMO per month, for storing 1T Byte file.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="s2" class="col-md-2 control-label">Downstream Traffic:</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control target" style="width: 100px;" id="s2" value="1">
+                        12 SAMO, for generating 1T Byte of downstream traffic.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="s3" class="col-md-2 control-label">Upstream Traffic:</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control target" style="width: 100px;" id="s3" value="1">
+                        48 SAMO, for generating 1T Byte of upstream traffic.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="s4" class="col-md-2 control-label">Availability:</label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="target" name="s4" value="1.2" checked>
+                                higher than 99.9%, 120% of the total reward
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="target" name="s4" value="0.8">
+                                between 98％~99%, 80% of the total reward
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="target" name="s4" value="0.6">
+                                between 97％~98%, 60% of the total reward
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="target" name="s4" value="0">
+                                lower than 97%, no reward!
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="s5" class="col-md-2 control-label">Testnet</label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="target" name="s5" value="3" checked>
+                                Yes Testnet participants will be rewarded with a 300% bonus based on the reward scheme
+                                above.
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="target" name="s5" value="1">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="s6" class="col-md-2 control-label">Your Earnings:</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" style="width: 100px;color: #FF0000;font-weight: bold"
+                               id="s6" value="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function () {
         cal()
@@ -87,14 +108,14 @@
     });
 
     function cal() {
-        var v1 = $("input[name='s1']").val();
-        var v2 = $("input[name='s2']").val();
-        var v3 = $("input[name='s3']").val();
-        var v4 = $("select[name='s4']").val();
+        var v1 = $("#s1").val();
+        var v2 = $("#s2").val();
+        var v3 = $("#s3").val();
+        var v4 = $("input[name='s4']:checked").val();
         var v5 = $("input[name='s5']:checked").val();
         var total = (v1 * 36 + v2 * 12 + v3 * 48) * v4 * v5;
         total = Math.floor(total)
-        $("#result").val(total);
+        $("#s6").val(total);
     }
 </script>
 <footer>
